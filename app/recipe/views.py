@@ -33,8 +33,12 @@ class RecipeViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
+# Different approach than ModelViewSet is using mixins:
 class TagViewSet(
-    mixins.UpdateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
+    mixins.DestroyModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
 ):
     """Manage tags in the database."""
 
