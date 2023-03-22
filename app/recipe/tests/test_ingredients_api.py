@@ -55,9 +55,6 @@ class PrivateIngredientsApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
-        self.assertContains(serializer, "Kale")
-        self.assertContains(serializer, "Vanilla")
-
     def test_ingredients_limited_to_user(self):
         """Test lis of ingredients is limited to authenticated user."""
 
